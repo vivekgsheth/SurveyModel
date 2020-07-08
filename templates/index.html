@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>Welcome to Survey!!</title>
+</head>
+<body>
+<div class = "container">
+	<div class="jumbotron jumbotron-fluid mt-3">
+		<div class="container">
+			<h1 class="display-4 text-center">Survey Questionnaire</h1>
+		</div>
+	</div>
+	<form action="{{url_for('thank_you')}}">
+		<div class="card">
+			<div class="card-body mt-3">
+				{%for i in result%}
+				Have you been experiencing {{i}} ?<br>
+				<input type="radio" id="yes" name="{{i}}" value="yes" required/>
+				<label for="yes">Yes</label><br>
+				<input type="radio" id="no" name="{{i}}" value="no"/>
+				<label for="no">No</label><br>
+				<hr>
+				{%endfor%}
+				{%for i in danger%}
+				Have you been experiencing {{i}} ?<br>
+				<input type="radio" id="yes" name="{{i}}" value="yes"required/>
+				<label for="yes">Yes</label><br>
+				<input type="radio" id="no" name="{{i}}" value="no"/>
+				<label for="no">No</label><br>
+				<hr>
+				{%endfor%}
+			</div>
+		</div>
+
+		<input class ="btn btn-primary mt-3 btn-block mb-5" type="submit" value="Submit Form">
+	</form>
+</div>
+</body>
+</html>
+
